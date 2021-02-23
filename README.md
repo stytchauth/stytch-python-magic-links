@@ -1,4 +1,7 @@
-# stytch-node-magic-links
+# stytch-python-magic-links
+
+##### Prerequisites
+Ensure you have pip, python and virtualenv installed
 
 ##### 1. Clone the repository. 
 Close this repository and navigate to the folder with the source code on your machine in a terminal window.
