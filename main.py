@@ -11,7 +11,7 @@ load_dotenv()
 PORT = os.getenv("PORT")
 HOST = os.getenv("HOST")
 
-magic_link_url = "http://{0}:{1}/authenticate".format(host, port)
+magic_link_url = "http://{0}:{1}/authenticate".format(HOST, PORT)
 
 # define the stytch client using your stytch project id & secret
 # set environment to "live" if you want to hit the live api
@@ -77,4 +77,4 @@ def logout():
 # run's the app on the provided host & port
 if __name__ == '__main__':
     # in production you would want to make sure to disable debugging
-    app.run(host=host, port=port, debug=True)
+    app.run(host=HOST, port=PORT, debug=True)
