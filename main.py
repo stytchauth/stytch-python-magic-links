@@ -35,14 +35,6 @@ def index():
 # loginOrCreateUser endpoint to send the user a magic link
 @app.route('/login_or_create_user', methods=['POST'])
 def login_or_create_user():
-    r = stytch_client.Users.delete("userid")
-    resp = stytch_client.Users.update(
-        user_id="userid",
-        first_name="Jane",
-        last_name="Doe",
-        email="email"
-    )
-    print(resp)
     resp = stytch_client.MagicLinks.login_or_create(
         email=request.form['email'],
         login_magic_link_url=magic_link_url,
@@ -59,7 +51,6 @@ def login_or_create_user():
 # link's query params and hits the stytch authenticate endpoint to verify the token is valid
 @app.route('/authenticate')
 def authenticate():
-    stytch_client.MagicLinks.revoke_invite_by_email(email="")
     resp = stytch_client.MagicLinks.authenticate(request.args.get('token'))
 
     if resp.status_code != 200:
