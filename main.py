@@ -35,7 +35,7 @@ def index():
 # loginOrCreateUser endpoint to send the user a magic link
 @app.route('/login_or_create_user', methods=['POST'])
 def login_or_create_user():
-    resp = stytch_client.MagicLinks.login_or_create(
+    resp = stytch_client.MagicLinks.login_or_create_by_email(
         email=request.form['email'],
         login_magic_link_url=magic_link_url,
         signup_magic_link_url=magic_link_url
