@@ -19,7 +19,7 @@ We suggest creating a [virtualenv](https://docs.python.org/3/library/venv.html) 
 Set your project ID and secret in the `.env` file.
 
 ##### 5. Add Magic Link URL
-Visit https://stytch.com/dashboard/magic-link-urls to add
+Visit https://stytch.com/dashboard/redirect-urls to add
 `http://localhost:3000/authenticate` as a valid sign-up and login URL.
 
 ##### 6. Run the Server
