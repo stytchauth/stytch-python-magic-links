@@ -20,7 +20,7 @@ Set your project ID and secret in the `.env` file.
 
 ##### 5. Add Magic Link URL
 Visit https://stytch.com/dashboard/redirect-urls to add
-`http://localhost:3000/authenticate` as a valid sign-up and login URL.
+`http://localhost:4567/authenticate` as a valid sign-up and login URL.
 
 ##### 6. Run the Server
 
