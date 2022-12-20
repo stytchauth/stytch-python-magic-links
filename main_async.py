@@ -36,15 +36,15 @@ app = Flask(__name__)
 
 # handles the homepage for Hello Socks
 @app.route("/")
-def index() -> str:
+async def index() -> str:
     return render_template("loginOrSignUp.html")
 
 
 # takes the email entered on the homepage and hits the stytch
 # loginOrCreateUser endpoint to send the user a magic link
 @app.route("/login_or_create_user", methods=["POST"])
-def login_or_create_user() -> str:
-    resp = stytch_client.magic_links.email.login_or_create(
+async def login_or_create_user() -> str:
+    resp = await stytch_client.magic_links.email.login_or_create_async(
         email=request.form["email"],
         login_magic_link_url=MAGIC_LINK_URL,
         signup_magic_link_url=MAGIC_LINK_URL,
@@ -60,8 +60,8 @@ def login_or_create_user() -> str:
 # It takes the token from the link's query params and hits the
 # stytch authenticate endpoint to verify the token is valid
 @app.route("/authenticate")
-def authenticate() -> str:
-    resp = stytch_client.magic_links.authenticate(request.args["token"])
+async def authenticate() -> str:
+    resp = await stytch_client.magic_links.authenticate_async(request.args["token"])
 
     if resp.status_code != 200:
         print(resp)
@@ -71,7 +71,7 @@ def authenticate() -> str:
 
 # handles the logout endpoint
 @app.route("/logout")
-def logout() -> str:
+async def logout() -> str:
     return render_template("loggedOut.html")
 
 
