@@ -10,9 +10,9 @@ from flask import Flask, render_template, request
 # load the .env file
 dotenv.load_dotenv()
 
-# By default, run on localhost:8080
-PORT = os.getenv("PORT", "localhost")
-HOST = os.getenv("HOST", "8080")
+# By default, run on localhost:4567
+HOST = os.getenv("HOST", "localhost")
+PORT = int(os.getenv("PORT", "4567"))
 MAGIC_LINK_URL = f"http://{HOST}:{PORT}/authenticate"
 
 # Load the Stytch credentials, but quit if they aren't defined
@@ -44,7 +44,7 @@ async def index() -> str:
 # loginOrCreateUser endpoint to send the user a magic link
 @app.route("/login_or_create_user", methods=["POST"])
 async def login_or_create_user() -> str:
-    resp = await stytch_client.magic_links.email.login_or_create(
+    resp = await stytch_client.magic_links.email.login_or_create_async(
         email=request.form["email"],
         login_magic_link_url=MAGIC_LINK_URL,
         signup_magic_link_url=MAGIC_LINK_URL,
@@ -61,7 +61,7 @@ async def login_or_create_user() -> str:
 # stytch authenticate endpoint to verify the token is valid
 @app.route("/authenticate")
 async def authenticate() -> str:
-    resp = await stytch_client.magic_links.authenticate(request.args.get("token"))
+    resp = await stytch_client.magic_links.authenticate_async(request.args["token"])
 
     if resp.status_code != 200:
         print(resp)
