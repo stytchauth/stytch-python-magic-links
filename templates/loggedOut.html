@@ -25,6 +25,12 @@
             <div class="cardContent">
                 <h1>Enjoy your socks!</h1>
                 <p>We'll see you next time.</p>
+                <form action="{{ url_for('index')}}" method="GET">
+                    <div class="actions">
+                        <a><b>Log back in? </b></a>
+                        <input class="arrow" type="image" src="{{ url_for('static', filename= 'images/arrow.png') }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
