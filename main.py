@@ -65,7 +65,9 @@ def with_auth_context(f):
 @with_auth_context
 def index() -> str:
     if g.auth_context:
-        return redirect(url_for("account"))
+        email = g.auth_context.get("user").emails[0].email
+        resp = make_response(render_template("loggedIn.html", email=email))
+        return resp
     
     resp = make_response(render_template("loginOrSignUp.html"))
     resp.delete_cookie("stytch-session")
@@ -84,7 +86,6 @@ def login_or_create_user() -> str:
             signup_magic_link_url=MAGIC_LINK_URL,
         )
     except:
-        print(resp)
         return "something went wrong sending magic link"
  
     return render_template("emailSent.html", type="login")
@@ -99,7 +100,6 @@ def authenticate():
     try:
         resp = stytch_client.magic_links.authenticate(token=request.args["token"], session_duration_minutes=5)
     except:
-        print(resp)
         return "something went wrong authenticating token"
     
     stytch_session = resp.session_token
@@ -118,7 +118,6 @@ def authenticate():
 @auth_required
 def account():
     emails = []
-    print(g.auth_context)
     user = g.auth_context.get("user")
     for email in user.emails:
         emails.append(email.email)
@@ -141,7 +140,6 @@ def add_email():
             signup_magic_link_url=MAGIC_LINK_URL,
         )
     except:
-        print(resp)
         return "something went wrong sending magic link"
 
     return render_template("emailSent.html", type="authentication")
