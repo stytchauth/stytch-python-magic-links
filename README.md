@@ -26,7 +26,7 @@ Set your project ID and secret in the `.env` file.
 ##### 5. Add Magic Link URL
 
 Visit https://stytch.com/dashboard/redirect-urls to add
-`http://localhost:4567/authenticate` as a valid sign-up and login URL.
+`http://localhost:3000/authenticate` as a valid sign-up and login URL.
 
 ##### 6. Run the Server
 
@@ -35,6 +35,6 @@ If you're interested in running async instead, run `python3 main_async.py`
 
 ##### 7. Login
 
-Visit `http://localhost:4567` and login with your email.
+Visit `http://localhost:3000` and login with your email.
 Then check for the Stytch email and click the sign in button.
 You should be signed in!
