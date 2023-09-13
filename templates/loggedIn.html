@@ -23,11 +23,11 @@
     <div class="content">
         <div class="card">
             <div class="cardContent">
-                <h1>Welcome back!</h1>
+                <h1>Hello {{ email }}!</h1>
                 <p>Your socks just can't wait to be shipped!</p>
-                <form action="{{ url_for('logout')}}" method="GET">
+                <form action="{{ url_for('account')}}" method="GET">
                     <div class="actions">
-                        <a><b>Logout</b></a>
+                        <a><b>View Account</b></a>
                         <input class="arrow" type="image" src="{{ url_for('static', filename= 'images/arrow.png') }}">
                     </div>
                 </form>

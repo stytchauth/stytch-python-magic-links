@@ -23,12 +23,24 @@
     <div class="content">
         <div class="card">
             <div class="cardContent">
-                <h1>You've got mail!</h1>
-                <p>Check your inbox (including the promotions folder) <br/>for the {{ type }} link.</p>
-                <p>Didn't find it? <a><b>Send it again.</b></a></p>
+                <h1>Account Details</h1>
+                <p><b>UserID:</b> {{ user_id }}</p>
+                <p><b>Emails:</b> {{ emails }} </p>
+                <form action="{{ url_for('add_email')}}" method="POST">
+                    <div class="actions">
+                        <input type="text" name="email" placeholder="Add another email to your account?" />
+                        <input class="arrow" type="image" src="{{ url_for('static', filename= 'images/arrow.png') }}">
+                    </div>
+                </form>
+                <p></p>
+                <form action="{{ url_for('logout')}}" method="GET">
+                    <div class="actions">
+                        <a><b>Logout</b></a>
+                        <input class="arrow" type="image" src="{{ url_for('static', filename= 'images/arrow.png') }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
