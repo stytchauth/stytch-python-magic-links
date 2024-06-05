@@ -23,7 +23,7 @@
     <div class="content">
         <div class="card">
             <div class="cardContent">
-                <h1>Welcome back!</h1>
+                <h1>Welcome back {{ email }}!</h1>
                 <p>Your socks just can't wait to be shipped!</p>
                 <form action="{{ url_for('logout')}}" method="GET">
                     <div class="actions">
