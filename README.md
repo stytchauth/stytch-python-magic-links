@@ -38,3 +38,20 @@ If you're interested in running async instead, run `python3 main_async.py`
 Visit `http://localhost:3000` and login with your email.
 Then check for the Stytch email and click the sign in button.
 You should be signed in!
+
+## Next steps
+
+This example app showcases a small portion of what you can accomplish with Stytch. Here are a few ideas to explore:
+
+1. Add additional login methods like [OAuth](https://stytch.com/docs/api/oauth-google-start) or [Passwords](https://stytch.com/docs/api/password-create).
+2. Secure your app further by building MFA authentication using methods like [OTP](https://stytch.com/docs/api/send-otp-by-sms).
+
+## Get help and join the community
+
+#### :speech_balloon: Stytch community Slack
+
+Join the discussion, ask questions, and suggest new features in our ​[Slack community](https://stytch.slack.com/join/shared_invite/zt-2f0fi1ruu-ub~HGouWRmPARM1MTwPESA)!
+
+#### :question: Need support?
+
+Check out the [Stytch Forum](https://forum.stytch.com/) or email us at [support@stytch.com](mailto:support@stytch.com).
