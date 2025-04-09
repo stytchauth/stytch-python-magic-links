@@ -12,7 +12,7 @@ Close this repository and navigate to the folder with the source code on your ma
 
 We suggest creating a [virtualenv](https://docs.python.org/3/library/venv.html) and activating it to avoid installing dependencies globally
 
-- `virtualenv -p python3 venv`
+- `python3 -m venv venv`
 - `source venv/bin/activate`
 
 ##### 3. Install dependencies:
